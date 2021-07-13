@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Children, Component, MouseEventHandler } from 'react';
+import ReactDOM from 'react-dom'
+import routes from './routes';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends Component {
+    ref: React.RefObject<any>;
+    constructor(props: any) {
+        super(props);
+        // ref
+        this.ref = React.createRef();
+    }
+    componentDidMount() {
+        ReactDOM.render(routes, this.ref.current);
+    }
+    render() {
+        return <div
+            id="app"
+            ref={this.ref}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        </div>
+    }
 }
+
 
 export default App;
