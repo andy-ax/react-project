@@ -9,7 +9,6 @@ export class ReduxEvent {
 
     constructor(store: Store) {
         this.store = store;
-        this.startListen();
     }
 
     addDataDispatch(action: Action) {
@@ -19,9 +18,9 @@ export class ReduxEvent {
         const dispatch: any = this.store.dispatch;
         dispatch(func);
     }
-    addPromiseDispatch(pro: Promise<Action>) {
+    addPromiseDispatch(promise: Promise<Action>) {
         const dispatch: any = this.store.dispatch;
-        dispatch(pro);
+        dispatch(promise);
     }
     addListen(type: string, listen: Function) {
         if (!this.listenList[type]) {
