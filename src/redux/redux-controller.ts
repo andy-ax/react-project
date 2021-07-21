@@ -1,9 +1,9 @@
 import {ReduxReducer} from './redux-reducer';
 import {ReduxEvent} from './redux-event';
 
-class Reduxp {
-    protected reducer: ReduxReducer;
-    protected event!: ReduxEvent;
+class ReduxController {
+    reducer: ReduxReducer;
+    event!: ReduxEvent;
     constructor() {
         this.reducer = new ReduxReducer();
     }
@@ -15,4 +15,4 @@ class Reduxp {
     }
 }
 
-export default new Reduxp();
+export default new ReduxController();
